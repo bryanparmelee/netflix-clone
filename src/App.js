@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import Feature from './components/featured.component';
+import Feature from './components/featured/featured.component';
+import MoviesRow from './components/movies-row/movies-row.component';
 
 import './App.css';
 
@@ -31,6 +32,11 @@ function App() {
   return (
     <div className="App">
       <Feature {...movies[0]}/>
+      <div className='movies-row-container'>
+        {movies.map((movie) => 
+          (<MoviesRow key={movie.id} {...movie} />
+        ))}
+        </div>
     </div>
   );
 }
