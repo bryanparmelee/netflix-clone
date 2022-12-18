@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import CategoryRow from './components/category-row/category-row.component';
 
 import Feature from './components/featured/featured.component';
-import MoviesRow from './components/movies-row/movies-row.component';
+import MoviesRow from './components/movie-thumbnail/movie-thumbnail.component';
 import NavBar from './components/nav-bar/nav-bar.component';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -20,7 +21,7 @@ function App() {
     fetch(API)
       .then(response => response.json())
       .then(data => {
-        console.log(data.results)
+        // console.log(data.results)
         setMovies(data.results)
       })
       .catch(error => console.log(error))
@@ -32,11 +33,8 @@ function App() {
     <div className="w-screen h-screen bg-black relative">
       <Feature {...movies[0]}/>
       <NavBar />
-      <div className='w-screen h-12 bg-red flex flex-row flex-nowrap gap-3'>
-        {movies.map((movie) => 
-          (<MoviesRow key={movie.id} {...movie} />
-        ))}
-        </div>
+      <CategoryRow movies={movies} />
+    
     </div>
   );
 }

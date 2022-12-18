@@ -1,9 +1,10 @@
-const MoviesRow = ({ backdrop_path, name }) => {
+const MovieThumbnail = ({ backdrop_path, name }) => {
     const moviesRowImgPath = `https://image.tmdb.org/t/p/w200${backdrop_path}`;
 
     return (
-        <div>
+        <div className="w-72">
             <img 
+                className=""
                 alt={name}
                 src={moviesRowImgPath}
             />
@@ -11,4 +12,4 @@ const MoviesRow = ({ backdrop_path, name }) => {
     )
 }
 
-export default MoviesRow;
+export default MovieThumbnail;

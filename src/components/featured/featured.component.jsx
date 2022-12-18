@@ -9,8 +9,10 @@ const Feature = ({ backdrop_path, title, overview }) => {
                 src={featuredImgPath}
                 className="w-full object-contain"    
                 />
-            <h2 className='text-4xl font-medium text-white absolute w-1/2 top-1/3 left-2.5 z-10'>{title}</h2>
-            <h4 className='font-lg font-white font-light aboslute w-1/2 h-1/5 top-1/2 left-2.5 z-10'>{overview}</h4>
+            <div className="w-1/2 h-full absolute top-1/2 left-0 z-10 text-white px-8">
+                <h2 className='text-4xl font-medium'>{title}</h2>
+                <h4 className='font-lg font-light'>{overview}</h4>
+            </div>
         </div>
     )
 }
