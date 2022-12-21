@@ -2,9 +2,9 @@ const MovieThumbnail = ({ backdrop_path, name }) => {
     const moviesRowImgPath = `https://image.tmdb.org/t/p/w200${backdrop_path}`;
 
     return (
-        <div className="w-72">
+        <div className="flex-none min-w-[52] h-auto">
             <img 
-                className=""
+                className="object-cover h-auto w-full"
                 alt={name}
                 src={moviesRowImgPath}
             />
