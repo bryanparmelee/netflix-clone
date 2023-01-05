@@ -4,7 +4,7 @@ const MovieThumbnail = ({ backdrop_path, name }) => {
     return (
         <div className="flex-none min-w-[52] h-auto">
             <img 
-                className="object-cover h-auto w-full"
+                className="object-cover h-auto w-full rounded"
                 alt={name}
                 src={moviesRowImgPath}
             />
