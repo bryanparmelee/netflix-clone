@@ -2,8 +2,8 @@ import play from '../../assets/play-24.png';
 import info from '../../assets/info-24.png';
 import speaker from '../../assets/speaker-24.png';
 
-const Feature = ({ backdrop_path, title, overview }) => {
-
+const Feature = ({ movie }) => {
+    const { backdrop_path, title } = movie;
     const featuredImgPath = `https://image.tmdb.org/t/p/original${backdrop_path}`;
     return (
         <div className="w-full h-[600px] relative">
