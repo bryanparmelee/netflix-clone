@@ -19,23 +19,23 @@ function App() {
     getTrending();
     getPopular();
     getTopRated();
-    console.log(trending, popular, topRated);
   }, []);
 
   const getTrending = () => {
     fetch(TRENDING_API)
       .then(response => response.json())
       .then(data => {
-        console.log(data.results[0])
         setTrending(data.results[0]);
        
       })
       .catch(error => console.log(error))
   };
+
   const getPopular = () => {
     fetch(POPULAR_API)
       .then(response => response.json())
       .then(data => {
+        console.log(data.results);
         setPopular(data.results);
       })
       .catch(error => console.log(error))
