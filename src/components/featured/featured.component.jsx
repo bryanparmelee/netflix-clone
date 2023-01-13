@@ -1,10 +1,28 @@
+import { useEffect, useState } from 'react';
+
 import play from '../../assets/play-24.png';
 import info from '../../assets/info-24.png';
 import speaker from '../../assets/speaker-24.png';
 
-const Feature = ({ movie }) => {
+
+const Feature = ({ fetchURL }) => {
+    const [movie, setMovie] =useState([])
+
+    const URL = `https://api.themoviedb.org/3${fetchURL}`;
+
+    useEffect(() => {
+        fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                const random = Math.floor(Math.random() * data.results.length);
+                setMovie(data.results[random]);
+            })
+            .catch(error => console.log(error))
+    }, [URL]);
+
     const { backdrop_path, title } = movie;
     const featuredImgPath = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+
     return (
         <div className="w-full h-[600px] relative">
      
