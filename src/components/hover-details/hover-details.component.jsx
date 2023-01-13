@@ -21,7 +21,7 @@ const HoverDetails = ({ details }) => {
     return (
      
             <div className='w-64 bg-black p-4 z-50 flex flex-col'>
-                <div className="flex justify-between">
+                <div className="flex justify-between pb-2">
                     <div className="flex gap-1">
                         <img alt='play' src={play}/>
                         <img alt='add' src={add}/>
