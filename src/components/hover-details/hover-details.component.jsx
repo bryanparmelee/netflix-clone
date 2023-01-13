@@ -3,12 +3,20 @@ import like from '../../assets/like button.png';
 import add from '../../assets/add-button-24.png';
 import more from '../../assets/down-chevron-24.png';
 
+import genres from '../../genreData';
+
 const HoverDetails = ({ details }) => {
     const { backdrop_path, title, vote_average, genre_ids } = details;
 
     const moviesImgPath = `https://image.tmdb.org/t/p/w200${backdrop_path}`;
 
     const rating = vote_average * 10;
+
+    const genreList = genre_ids.map(genre => {
+        return (
+            <span>{genres[genre]}</span>
+        )
+    });
 
     return (
      
@@ -24,6 +32,9 @@ const HoverDetails = ({ details }) => {
                     </div>
                 </div>
                 <span className='text-green-500 font-bold text-xs'>{`${rating}% Match`}</span>
+                <div className='text-white text-xs flex gap-2'>
+                    {genreList}
+                </div>
             </div>
     )
 }

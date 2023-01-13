@@ -9,7 +9,6 @@ const TRENDING_API = `https://api.themoviedb.org/3/trending/all/week?api_key=${A
 const POPULAR_API = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`;
 const TOP_RATED_API = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`;
 
-
 function App() {
   const [trending, setTrending] = useState([]);
   const [popular, setPopular] = useState([]);
