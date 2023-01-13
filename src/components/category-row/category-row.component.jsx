@@ -16,7 +16,7 @@ const CategoryRow = ({ category, fetchURL }) => {
     return (
         <div className="w-screen absolute pl-8 z-10 mb-10">
             <h2 className="text-white text-lg">{category}</h2>
-            <div className='h-auto w-full flex flex-nowrap overflow-x-scroll gap-2 pt-2'>
+            <div className='h-auto w-full flex flex-nowrap overflow-x-scroll gap-2 p-2 scrollbar-hide'>
             {movies && movies.map((movie) => 
              (<MovieThumbnail key={movie.id} film={movie} />
              ))}

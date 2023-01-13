@@ -13,7 +13,7 @@ const MovieThumbnail = ({ film }) => {
     const moviesRowImgPath = `https://image.tmdb.org/t/p/w200${backdrop_path}`;
 
     return (
-        <div className="h-auto flex-none min-w-[52] hover:z-30">
+        <div className="h-auto flex-none min-w-[52] transition-transform hover:z-30">
             <div className=""
                 onMouseOver={handleMouseOver}
                 onMouseOut={handleMouseOut}

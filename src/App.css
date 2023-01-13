@@ -8,20 +8,3 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.App {
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-}
-
-.movies-row-container {
-    background-color: purple;
-    width: 100vw;
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    gap: 5px;    
-    overflow: scroll;
-}
