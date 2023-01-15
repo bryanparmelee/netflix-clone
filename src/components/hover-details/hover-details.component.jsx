@@ -12,8 +12,9 @@ const HoverDetails = ({ details }) => {
 
     const rating = vote_average * 10;
 
-    const genreList = genre_ids.map(genre => {
-        return (
+    const genreList = genre_ids.slice(0, 3).map(genre => {
+     
+            return (
             <span>{genres[genre]}</span>
         )
     });
