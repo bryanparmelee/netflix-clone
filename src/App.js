@@ -11,7 +11,7 @@ function App() {
       <Feature fetchURL={requests.fetchTrending} />
       <NavBar />
       <CategoryRow category='Popular on Netflix' fetchURL={requests.fetchPopular} />
-      <div className='w-full h-44'></div>
+      {/* <div className='w-full h-44'></div> */}
       <CategoryRow category='Top 20' fetchURL={requests.fetchTopRated} />
     </div>
   );
