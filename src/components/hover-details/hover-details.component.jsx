@@ -20,23 +20,25 @@ const HoverDetails = ({ details }) => {
     });
 
     return (
-     
-            <div className='w-64 bg-black p-4 z-50 flex flex-col'>
-                <div className="flex justify-between pb-2">
-                    <div className="flex gap-1">
-                        <img alt='play' src={play}/>
-                        <img alt='add' src={add}/>
-                        <img alt='like' src={like}/>
-                    </div>
-                    <div className="">
-                        <img alt='more' src={more} />
-                    </div>
-                </div>
-                <span className='text-green-500 font-bold text-xs'>{`${rating}% Match`}</span>
-                <div className='text-white text-xs flex gap-2'>
-                    {genreList}
-                </div>
-            </div>
+        <div className="absolute h-72 w-52 bg-teal-700 z-40 -top-20 -left-8 border-2">
+
+        </div>
+            // <div className='w-64 bg-black p-4 z-50 flex flex-col'>
+            //     <div className="flex justify-between pb-2">
+            //         <div className="flex gap-1">
+            //             <img alt='play' src={play}/>
+            //             <img alt='add' src={add}/>
+            //             <img alt='like' src={like}/>
+            //         </div>
+            //         <div className="">
+            //             <img alt='more' src={more} />
+            //         </div>
+            //     </div>
+            //     <span className='text-green-500 font-bold text-xs'>{`${rating}% Match`}</span>
+            //     <div className='text-white text-xs flex gap-2'>
+            //         {genreList}
+            //     </div>
+            // </div>
     )
 }
 

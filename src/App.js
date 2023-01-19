@@ -7,7 +7,7 @@ import requests from './requests';
 function App() {
   
   return (
-    <div className="w-screen h-screen bg-black relative">
+    <div className="w-full h-full bg-black relative overflow-hidden">
       <Feature fetchURL={requests.fetchTrending} />
       <NavBar />
       <CategoryRow category='Popular on Netflix' fetchURL={requests.fetchPopular} />
