@@ -24,7 +24,7 @@ const Feature = ({ fetchURL }) => {
     const featuredImgPath = `https://image.tmdb.org/t/p/original${backdrop_path}`;
 
     return (
-        <div className="w-full h-[600px] relative">
+        <div className="w-full relative">
      
             <img 
                 alt={title}

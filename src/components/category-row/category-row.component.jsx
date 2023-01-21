@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import MovieThumbnail from "../movie-thumbnail/movie-thumbnail.component";
 
-const CategoryRow = ({ category, fetchURL }) => {
+const CategoryRow = ({ category, fetchURL, windowSize }) => {
     const [movies, setMovies] = useState([]);
     const [slideIndex, setSlideIndex] = useState(0);
+    const [itemsPerRow, setItemsPerRow] = useState(5)
 
     const URL = `https://api.themoviedb.org/3${fetchURL}`;
 
@@ -29,9 +30,20 @@ const CategoryRow = ({ category, fetchURL }) => {
             .catch(error => console.log(error))
     }, [URL]);
 
+    useEffect(() => {
+        if (windowSize > 768) {setItemsPerRow(5);}
+        if (windowSize <= 768 && windowSize > 640) {
+            setItemsPerRow(4)
+        }
+        if (windowSize <= 640) {setItemsPerRow(3);}
+    }, [windowSize])
+
     return (
         <div className="">
-            <h2 className="text-white text-lg">{category}</h2>
+            <div className="flex justify-between items-center py-1 px-[5%]">
+                <h2 className="text-white text-lg">{category}</h2>
+
+            </div>
             <div className="flex justify-center overflow-hidden group">
                 <button
                     type="button"
@@ -40,15 +52,14 @@ const CategoryRow = ({ category, fetchURL }) => {
                      <span className="text-white">&#8249;</span>
                 </button>
                 
-                <div 
+                <div   
                     ref={rowRef}
                     style={{ transform:`translateX(calc(${slideIndex} * -100%))` }}
-                    className='h-auto w-[90%] flex flex-nowrap transition duration-300 ease-in-out'
+                    className='h-auto w-[90%] flex flex-nowrap transition duration-200 ease-in-out mb-8'
                 >
                     {movies && movies.map((movie, i) => 
-                    (<MovieThumbnail key={movie.id} film={movie} index={i}/>
+                    (<MovieThumbnail key={movie.id} film={movie} index={i} itemsPerRow={itemsPerRow} />
                     ))}
-                     {/* <div className="h-96 w-44 bg-cyan-500 border"></div> */}
                 </div>
                 <button
                     type="button"

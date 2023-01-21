@@ -8,8 +8,10 @@ import more from '../../assets/down-chevron-24.png';
 
 import genres from '../../genreData';
 
-const MovieThumbnail = ({ film, index }) => {
+const MovieThumbnail = ({ film, index, itemsPerRow }) => {
     const [isHovered, setIsHovered] = useState(false);
+
+    const imgSize = 100 / itemsPerRow;
 
     const mouseOverHandler = () => setIsHovered(true);
     const mouseOutHandler = () => setIsHovered(false);
@@ -17,6 +19,8 @@ const MovieThumbnail = ({ film, index }) => {
     const { backdrop_path, title, vote_average, genre_ids } = film;
 
     const bgImg = `https://image.tmdb.org/t/p/w200${backdrop_path}`;
+
+  
 
     const rating = vote_average * 10;
 
@@ -27,10 +31,13 @@ const MovieThumbnail = ({ film, index }) => {
         )
     });
 
+    console.log(imgSize);
+
     return (
 
         <div
-            className="w-1/5 aspect-video flex-none p-1 relative cursor-pointer z-10 overflow-hidden" 
+            style={{ width:`${imgSize}%` }}
+            className="aspect-video flex-none p-1 relative cursor-pointer z-10 overflow-hidden" 
             // style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
             // onMouseEnter={mouseOverHandler} 
             // onMouseLeave={mouseOutHandler}
@@ -42,7 +49,7 @@ const MovieThumbnail = ({ film, index }) => {
                 className="w-full h-full object-cover"   
             />
 
-            <div className=' bg-black w-full h-fit p-2 box-border transition delay-200 ease-out rounded-b-sm'>                
+            {/* <div className=' bg-black w-full h-fit p-2 box-border transition delay-200 ease-out rounded-b-sm'>                
                 <div className="flex justify-between pb-2">
                     <div className="flex gap-1">
                         <img alt='play' src={play}/>
@@ -57,7 +64,7 @@ const MovieThumbnail = ({ film, index }) => {
                 <div className='text-white text-xs flex gap-2'>
                     {genreList}
                 </div>             
-            </div>
+            </div> */}
    
       
         </div>
