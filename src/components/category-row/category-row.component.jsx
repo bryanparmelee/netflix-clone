@@ -3,23 +3,24 @@ import MovieThumbnail from "../movie-thumbnail/movie-thumbnail.component";
 
 const CategoryRow = ({ category, fetchURL }) => {
     const [movies, setMovies] = useState([]);
+    const [slideIndex, setSlideIndex] = useState(0);
+
     const URL = `https://api.themoviedb.org/3${fetchURL}`;
 
     const rowRef = useRef();
 
     const handleClick = (direction) => {
-        let distance = rowRef.current.getBoundingClientRect().x - 50;
         if (direction === 'left') {
-            rowRef.current.style.transform = `translateX(${230 + distance}px)`;
-        }
+            setSlideIndex(prev => prev - 1);
+            console.log(slideIndex);
+        } 
         if (direction === 'right') {
-            rowRef.current.style.transform = `translateX(${-230 + distance}px)`;
+            setSlideIndex(prev => prev + 1);
         }
-      
     }
 
-    const handleLeftClick = () => handleClick('left');
-    const handleRightClick = () => handleClick('right');
+    const leftClick = () => handleClick('left');
+    const rightClick = () => handleClick('right');
 
     useEffect(() => {
         fetch(URL)
@@ -29,28 +30,32 @@ const CategoryRow = ({ category, fetchURL }) => {
     }, [URL]);
 
     return (
-        <div className="w-screen z-10 mb-10 bg-red-200 text-white">
+        <div className="">
             <h2 className="text-white text-lg">{category}</h2>
-            <div className="relative">
-                <div
-                    onClick={handleLeftClick} 
-                    className="z-50 h-full w-12 text-5xl absolute left-0 top-0 bottom-0 m-auto bg-black/50  flex items-center justify-center cursor-pointer">
-                   &#60;
-                </div>
+            <div className="flex justify-center overflow-hidden group">
+                <button
+                    type="button"
+                    onClick={leftClick} 
+                    className="border-none flex-grow-0 flex-shrink-0 my-1 w-[5%] opacity-0 group-hover:opacity-100 text-5xl bg-black/25 hover:bg-black/50 flex items-center justify-center cursor-pointer z-20 transition ease-in-out">
+                     <span className="text-white">&#8249;</span>
+                </button>
                 
                 <div 
                     ref={rowRef}
-                    className='h-auto w-full ml-12 flex flex-nowrap gap-2 z-20 transition duration-500 ease-in-out'>
-                {movies && movies.map((movie) => 
-                (<MovieThumbnail key={movie.id} film={movie} />
-                ))}
-                    {/* <div className="h-96 w-44 bg-cyan-500 border"></div> */}
+                    style={{ transform:`translateX(calc(${slideIndex} * -100%))` }}
+                    className='h-auto w-[90%] flex flex-nowrap transition duration-300 ease-in-out'
+                >
+                    {movies && movies.map((movie, i) => 
+                    (<MovieThumbnail key={movie.id} film={movie} index={i}/>
+                    ))}
+                     {/* <div className="h-96 w-44 bg-cyan-500 border"></div> */}
                 </div>
-                <div
-                    onClick={handleRightClick} 
-                    className="h-full w-12 text-5xl absolute right-0 top-0 bottom-0 m-auto bg-black/50 z-50 flex items-center justify-center cursor-pointer">
-                    <span>&#62;</span>
-                </div>
+                <button
+                    type="button"
+                    onClick={rightClick} 
+                    className="border-none flex-grow-0 flex-shrink-0 my-1 w-[5%] opacity-0 group-hover:opacity-100 text-5xl bg-black/25 hover:bg-black/50 flex items-center justify-center cursor-pointer z-20 transition ease-in-out">
+                    <span className="text-white">&#8250;</span>
+                </button>
             </div>
         </div>
     )
