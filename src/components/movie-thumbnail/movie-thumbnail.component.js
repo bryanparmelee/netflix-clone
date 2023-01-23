@@ -31,7 +31,6 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
         )
     });
 
-    console.log(imgSize);
 
     return (
 
