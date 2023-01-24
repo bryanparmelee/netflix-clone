@@ -13,30 +13,30 @@ const NavBar = () => {
                     className='w-20 mr-8 cursor-pointer'
                 />
                 <div className='text-white text-xs font-bold flex items-center justify-evenly gap-4'>
-                    <span>Home</span>
-                    <span>TV Shows</span>
-                    <span>Movies</span>
-                    <span>New & Popular</span>
-                    <span>My List</span>
-                    <span>Browse by Language</span>
+                    <span className='cursor-pointer'>Home</span>
+                    <span className='cursor-pointer'>TV Shows</span>
+                    <span className='cursor-pointer'>Movies</span>
+                    <span className='cursor-pointer'>New & Popular</span>
+                    <span className='cursor-pointer'>My List</span>
+                    <span className='cursor-pointer'>Browse by Language</span>
                 </div>
             </div>
             <div className='text-white text-xs font-bold flex justify-evenly items-center gap-4'>
                 <img 
                     alt='search'
                     src={search}
-                    className='h-4'
+                    className='h-4 cursor-pointer'
                 />
-                <span>DVD</span>
+                <span className='cursor-pointer'>DVD</span>
                 <img 
                     alt='notification'
                     src={notification}
-                    className='h-4'
+                    className='h-4 cursor-pointer'
                 />
                 <img 
                     alt='user-icon'
                     src={userIcon}
-                    className='h-4'
+                    className='h-4 cursor-pointer'
                 />
             </div>
         </div>

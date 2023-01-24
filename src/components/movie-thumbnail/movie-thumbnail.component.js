@@ -24,49 +24,51 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
 
     const rating = vote_average * 10;
 
-    const genreList = genre_ids.slice(0, 3).map(genre => {
+    const genreSlice = genre_ids.slice(0, 3);
+    const genreList =  genreSlice.map((genre, i) => {
      
-        return (
+        return i !== genreSlice.length - 1 ? 
+        (
+            <span>{genres[genre] + '  •'}</span>
+        ) : (
             <span>{genres[genre]}</span>
         )
     });
 
 
     return (
-
-        <div
-            style={{ width:`${imgSize}%` }}
-            className="aspect-video flex-none p-1 relative cursor-pointer z-10 overflow-hidden" 
-            // style={{ left: isHovered && index * 225 - 50 + index * 2.5 }}
-            // onMouseEnter={mouseOverHandler} 
-            // onMouseLeave={mouseOutHandler}
-            
-        >
-            <img 
-                src={bgImg}
-                alt={`${title}`}
-                className="w-full h-full object-cover"   
-            />
-
-            {/* <div className=' bg-black w-full h-fit p-2 box-border transition delay-200 ease-out rounded-b-sm'>                
-                <div className="flex justify-between pb-2">
-                    <div className="flex gap-1">
-                        <img alt='play' src={play}/>
-                        <img alt='add' src={add}/>
-                        <img alt='like' src={like}/>
+            <div
+                onMouseEnter={mouseOverHandler}
+                onMouseLeave={mouseOutHandler} 
+                style={{ width: `${imgSize}%` }}
+                className="aspect-video flex-none p-1 cursor-pointer z-20 transition hover:z-50 hover:-translate-y-16 hover:scale-125 hover:shadow hover:rounded group/movie">
+              
+                <img 
+             
+                    src={bgImg}
+                    alt={`${title}`}
+                  
+                    className="rounded group-hover/movie:rounded-none" 
+                />
+                <div className="bg-black hidden p-2 transition delay-200 ease-out rounded-b-sm group-hover/movie:block">
+                    <div className="flex justify-between pb-2">
+                        <div className="flex gap-1 group-hover/movie:scale-[.66]">
+                            <img alt='play' src={play}/>
+                            <img alt='add' src={add}/>
+                            <img alt='like' src={like}/>
+                        </div>
+                        <div className="group-hover/movie:scale-[.66]">
+                            <img alt='more' src={more} />
+                        </div>
                     </div>
-                    <div className="">
-                        <img alt='more' src={more} />
-                    </div>
+                    <span className='text-green-500 text-xs group-hover/movie:scale-[.66]'>{`${rating}% Match`}</span>
+                    <div className='text-white text-xs flex gap-2 group-hover/movie:scale-[.66]'>
+                        {genreList}
+                    </div>             
                 </div>
-                <span className='text-green-500 font-bold text-xs'>{`${rating}% Match`}</span>
-                <div className='text-white text-xs flex gap-2'>
-                    {genreList}
-                </div>             
-            </div> */}
-   
-      
-        </div>
+                
+       
+            </div>
     )
 }
 

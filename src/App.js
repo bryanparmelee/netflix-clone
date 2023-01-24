@@ -17,11 +17,15 @@ function App() {
 
   return (
     <div className="w-full h-full bg-black relative overflow-hidden">
-      <Feature fetchURL={requests.fetchTrending} />
       <NavBar />
+
+      <Feature fetchURL={requests.fetchTrending} />
+
+      <CategoryRow category='Top 20' fetchURL={requests.fetchTopRated} windowSize={size} />
+    
       <CategoryRow category='Popular on Netflix' fetchURL={requests.fetchPopular} windowSize={size} />
    
-      <CategoryRow category='Top 20' fetchURL={requests.fetchTopRated} />
+     
     </div>
   );
 }

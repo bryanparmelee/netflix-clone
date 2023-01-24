@@ -5,17 +5,17 @@ const ScrollProgress = ({ items, position}) => {
         bars.push('');
     }
 
-    const pBar = bars.map((el, i) => {
+    const pBar = bars.map((_, i) => {
         return position === i ? (
                 <div
                 key={i} 
-                className="flex-[0_0_2rem] h-1 bg-white/90"             
+                className="flex-[0_0_2rem] h-0.5 bg-white/90"             
                 >
                 </div>
             ) : (
                 <div
                 key={i} 
-                className="flex-[0_0_2rem] h-1 bg-white/50"             
+                className="flex-[0_0_2rem] h-0.5 bg-white/50"             
                 >
                 </div>
             )

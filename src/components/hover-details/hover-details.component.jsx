@@ -20,7 +20,7 @@ const HoverDetails = ({ details }) => {
     });
 
     return (
-        <div className="absolute h-72 w-52 bg-teal-700 z-40 -top-20 -left-8 border-2">
+        <div className="absolute h-72 w-52 bg-teal-700 z-[100] -top-20 border-2">
 
         </div>
             // <div className='w-64 bg-black p-4 z-50 flex flex-col'>

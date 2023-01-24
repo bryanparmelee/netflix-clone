@@ -31,7 +31,7 @@ const Feature = ({ fetchURL }) => {
                 src={featuredImgPath}
                 className="w-full object-contain"    
                 />
-            <div className="w-full h-full absolute top-1/2 left-0 z-10 text-white pl-8">
+            <div className="w-full absolute top-1/2 left-0 z-10 text-white pl-8">
                 <h2 className='text-4xl font-medium'>{title}</h2>
                 <div className="w-full mt-12 flex justify-between">
                     <div className="w-auto flex gap-4">
@@ -67,7 +67,7 @@ const Feature = ({ fetchURL }) => {
                             />                           
                         </div>
                         <div className='w-36 h-9 border-l-2 bg-black/50 ml-4 flex items-center pl-2'>
-                                <span className='text-white font-medium'>TV-MA</span>
+                            <span className='text-white font-medium'>TV-MA</span>
                         </div>
                     </div>
                 </div>
