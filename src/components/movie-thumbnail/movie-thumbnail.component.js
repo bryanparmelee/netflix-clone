@@ -8,21 +8,29 @@ import more from '../../assets/down-chevron-24.png';
 
 import genres from '../../genreData';
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 const MovieThumbnail = ({ film, index, itemsPerRow }) => {
-    const [isHovered, setIsHovered] = useState(false);
+    const [rating, setRating] = useState("");
+    const { backdrop_path, title, vote_average, genre_ids, id } = film;
+
+    const fetchRating = (id) => {
+        const URL = `https://api.themoviedb.org/3/movie/${id}/release_dates?api_key=${API_KEY}`;
+        fetch(URL)
+            .then(response => response.json())
+            .then(data => {
+                const US = data.results.filter(el => el.iso_3166_1 === "US");
+                const releases = US[0].release_dates.filter(el => el.certification.length)
+               setRating(releases[0].certification);
+            })
+    }
+
+ 
+    const bgImg = `https://image.tmdb.org/t/p/w200${backdrop_path}`;
 
     const imgSize = 100 / itemsPerRow;
 
-    const mouseOverHandler = () => setIsHovered(true);
-    const mouseOutHandler = () => setIsHovered(false);
- 
-    const { backdrop_path, title, vote_average, genre_ids } = film;
-
-    const bgImg = `https://image.tmdb.org/t/p/w200${backdrop_path}`;
-
-  
-
-    const rating = vote_average * 10;
+    const match = vote_average * 10;
 
     const genreSlice = genre_ids.slice(0, 3);
     const genreList =  genreSlice.map((genre, i) => {
@@ -38,8 +46,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
 
     return (
             <div
-                onMouseEnter={mouseOverHandler}
-                onMouseLeave={mouseOutHandler} 
+                onMouseEnter={() => fetchRating(id)}
                 style={{ width: `${imgSize}%` }}
                 className="aspect-video flex-none cursor-pointer z-20 transition hover:z-50 hover:-translate-y-16 hover:scale-125 hover:shadow-md hover:rounded group/movie">
               
@@ -61,8 +68,14 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                             <img alt='more' src={more} />
                         </div>
                     </div>
-                    <div className=' text-green-500 text-xs group-hover/movie:scale-[.8] -translate-x-4'>
-                        <span>{`${rating}% Match`}</span>
+                    <div className="flex gap-1 group-hover/movie:scale-[.8] -translate-x-4">
+                        <div className=' text-green-500 text-xs'>
+                            <span>{`${match}% Match`}</span>
+                        </div>
+                        <div className=' text-white text-xs border-2 p-1'>
+                            <span>{rating && `${rating}`}</span>
+                        </div>
+
                     </div>
                     <div className='text-white text-xs flex gap-2 group-hover/movie:scale-[.8] -translate-x-4'>
                         {genreList}
