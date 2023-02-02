@@ -50,8 +50,8 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                   
                     className="rounded group-hover/movie:rounded-none" 
                 />
-                <div className="bg-black hidden p-2 transition delay-200 ease-out rounded-b-sm group-hover/movie:block">
-                    <div className="flex justify-between pb-2">
+                <div className="bg-black hidden p-2 transition delay-200 ease-out rounded-b-sm group-hover/movie:block border-2">
+                    <div className="flex justify-between">
                         <div className="flex gap-1 group-hover/movie:scale-[.66]">
                             <img alt='play' src={play}/>
                             <img alt='add' src={add}/>
