@@ -20,19 +20,20 @@ const Feature = ({ fetchURL }) => {
             .catch(error => console.log(error))
     }, [URL]);
 
-    const { backdrop_path, title } = movie;
+    const { backdrop_path, title, name } = movie;
     const featuredImgPath = `https://image.tmdb.org/t/p/original${backdrop_path}`;
-
+    console.log(movie);
     return (
-        <div className="w-full relative">
+        <div 
+            className="w-full relative">
      
             <img 
                 alt={title}
                 src={featuredImgPath}
-                className="w-full object-contain"    
+                className="w-full object-contain opacity-90"    
                 />
             <div className="w-full absolute top-1/2 left-0 z-10 text-white pl-8">
-                <h2 className='text-4xl font-medium'>{title}</h2>
+                <h2 className='text-4xl font-medium'>{title ? title : name}</h2>
                 <div className="w-full mt-12 flex justify-between">
                     <div className="w-auto flex gap-4">
                         <button className="w-24 h-10 bg-white text-black rounded"

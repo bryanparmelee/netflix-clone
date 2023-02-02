@@ -21,7 +21,6 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
         fetch(URL)
             .then(response => response.json())
             .then(data => {
-                console.log(data) 
                 const hours = Math.floor(data.runtime / 60);
                 const minutes = data.runtime - hours * 60;
                 setRunTime(`${hours}h ${minutes}m`);
@@ -44,9 +43,9 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
      
         return i !== genreSlice.length - 1 ? 
         (
-            <span className="whitespace-nowrap"> {genres[genre]} <span className="text-slate-500"> •</span> </span>
+            <span key={i} className="whitespace-nowrap"> {genres[genre]} <span className="text-slate-500"> •</span> </span>
         ) : (
-            <span> {genres[genre]} </span>
+            <span key={i}> {genres[genre]} </span>
         )
     });
 
@@ -54,7 +53,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
     return (
             <div
                 onMouseEnter={() => fetchRating(id)}
-                style={{ 'max-width': `${imgSize}%` }}
+                style={{ maxWidth: `${imgSize}%` }}
                 className="aspect-video flex-none cursor-pointer z-20 transition hover:z-50 hover:-translate-y-16 hover:scale-125 hover:drop-shadow-2xl hover:rounded group/movie">
               
                 <img 
@@ -80,7 +79,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                         <div className='text-white text-xs border px-1 whitespace-nowrap'>
                             <span>{rating && `${rating}`}</span>
                         </div>
-                        <div class="text-white text-xs whitespace-nowrap">
+                        <div className="text-white text-xs whitespace-nowrap">
                             <span>{runTime && `${runTime}`}</span>
                         </div>
                         <div className="text-white text-[8px] border-[0.25px] px-1">
