@@ -74,7 +74,7 @@ const CategoryRow = ({ category, fetchURL, windowSize }) => {
                 <div   
                
                     style={{ transform:`translateX(calc(${slideIndex} * -100%))` }}
-                    className='w-[90%] flex transition duration-200 ease-in-out'
+                    className='w-[90%] flex gap-1 transition duration-200 ease-in-out'
                 >
                     {movies && movies.map((movie, i) => 
                     (<MovieThumbnail key={movie.id} film={movie} index={i} itemsPerRow={itemsPerRow} />
