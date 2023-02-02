@@ -63,7 +63,7 @@ const CategoryRow = ({ category, fetchURL, windowSize }) => {
                 <ScrollProgress items={progressItems} position={slideIndex} />
             </div>
             
-            <div className="max-h-28 flex justify-center group/row">
+            <div className="max-h-24 flex justify-center group/row">
                 <button
                     type="button"
                     onClick={leftClick} 

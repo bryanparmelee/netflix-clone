@@ -22,7 +22,7 @@ const Feature = ({ fetchURL }) => {
 
     const { backdrop_path, title, name } = movie;
     const featuredImgPath = `https://image.tmdb.org/t/p/original${backdrop_path}`;
-    console.log(movie);
+
     return (
         <div 
             className="w-full relative">
@@ -30,7 +30,7 @@ const Feature = ({ fetchURL }) => {
             <img 
                 alt={title}
                 src={featuredImgPath}
-                className="w-full object-contain opacity-90"    
+                className="w-full object-contain opacity-80"    
                 />
             <div className="w-full absolute top-1/2 left-0 z-10 text-white pl-8">
                 <h2 className='text-4xl font-medium'>{title ? title : name}</h2>

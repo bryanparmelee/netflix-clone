@@ -3,6 +3,7 @@ import CategoryRow from './components/category-row/category-row.component';
 import Feature from './components/featured/featured.component';
 import NavBar from './components/nav-bar/nav-bar.component';
 import requests from './requests';
+import Footer from './components/footer/footer.component';
 
 
 
@@ -25,7 +26,7 @@ function App() {
     
       <CategoryRow category='Popular on Netflix' fetchURL={requests.fetchPopular} windowSize={size} />
    
-     
+     <Footer />
     </div>
   );
 }
