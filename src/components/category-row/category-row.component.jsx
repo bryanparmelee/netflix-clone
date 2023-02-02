@@ -63,11 +63,11 @@ const CategoryRow = ({ category, fetchURL, windowSize }) => {
                 <ScrollProgress items={progressItems} position={slideIndex} />
             </div>
             
-            <div className="max-h-28 flex justify-center group/row bg-purple-300">
+            <div className="max-h-28 flex justify-center group/row">
                 <button
                     type="button"
                     onClick={leftClick} 
-                    className="border-none flex-none h-auto my-1 w-[5%] opacity-0 group-scoped-hover:opacity-100 text-5xl bg-black/25 hover:bg-black/50 flex items-center justify-center cursor-pointer z-30 transition ease-in-out">
+                    className="border-none flex-grow-0 flex-shrink-0 w-[5%] opacity-0 group-hover/row:opacity-100 text-5xl bg-black/25 hover:bg-black/50 flex items-center justify-center cursor-pointer z-20 transition ease-in-out">
                      <span className="text-white">&#8249;</span>
                 </button>
                 
@@ -83,7 +83,7 @@ const CategoryRow = ({ category, fetchURL, windowSize }) => {
                 <button
                     type="button"
                     onClick={rightClick} 
-                    className="border-none flex-grow-0 flex-shrink-0 my-1 w-[5%] opacity-0 group-hover/row:opacity-100 text-5xl bg-black/25 hover:bg-black/50 flex items-center justify-center cursor-pointer z-30 transition ease-in-out">
+                    className="border-none flex-grow-0 flex-shrink-0 w-[5%] opacity-0 group-hover/row:opacity-100 text-5xl bg-black/25 hover:bg-black/50 flex items-center justify-center cursor-pointer z-20 transition ease-in-out">
                     <span className="text-white">&#8250;</span>
                 </button>
             </div>

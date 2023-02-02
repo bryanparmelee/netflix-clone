@@ -16,7 +16,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full h-full bg-black relative overflow-hidden">
+    <div className="w-full h-full bg-zinc-900 relative overflow-hidden">
       <NavBar />
 
       <Feature fetchURL={requests.fetchTrending} />

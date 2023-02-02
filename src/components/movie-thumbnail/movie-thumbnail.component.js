@@ -41,28 +41,30 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                 onMouseEnter={mouseOverHandler}
                 onMouseLeave={mouseOutHandler} 
                 style={{ width: `${imgSize}%` }}
-                className="aspect-video flex-none p-1 cursor-pointer z-20 transition hover:z-50 hover:-translate-y-16 hover:scale-125 hover:shadow hover:rounded group/movie">
+                className="aspect-video flex-none cursor-pointer z-20 transition hover:z-50 hover:-translate-y-16 hover:scale-125 hover:shadow-md hover:rounded group/movie">
               
                 <img 
-             
                     src={bgImg}
-                    alt={`${title}`}
-                  
+                    alt={`${title}`}                  
                     className="rounded group-hover/movie:rounded-none" 
                 />
-                <div className="bg-black hidden p-2 transition delay-200 ease-out rounded-b-sm group-hover/movie:block border-2">
+                <div
+                    style={{ width: '97%'}} 
+                    className="bg-neutral-900 hidden p-1 transition delay-200 ease-out rounded-b-sm group-hover/movie:flex flex-col gap-1 justify-evenly border-2">
                     <div className="flex justify-between">
-                        <div className="flex gap-1 group-hover/movie:scale-[.66]">
+                        <div className="flex gap-1 group-hover/movie:scale-[.8] -translate-x-2">
                             <img alt='play' src={play}/>
                             <img alt='add' src={add}/>
                             <img alt='like' src={like}/>
                         </div>
-                        <div className="group-hover/movie:scale-[.66]">
+                        <div className="group-hover/movie:scale-[.8]">
                             <img alt='more' src={more} />
                         </div>
                     </div>
-                    <span className='text-green-500 text-xs group-hover/movie:scale-[.66]'>{`${rating}% Match`}</span>
-                    <div className='text-white text-xs flex gap-2 group-hover/movie:scale-[.66]'>
+                    <div className=' text-green-500 text-xs group-hover/movie:scale-[.8] -translate-x-4'>
+                        <span>{`${rating}% Match`}</span>
+                    </div>
+                    <div className='text-white text-xs flex gap-2 group-hover/movie:scale-[.8] -translate-x-4'>
                         {genreList}
                     </div>             
                 </div>
