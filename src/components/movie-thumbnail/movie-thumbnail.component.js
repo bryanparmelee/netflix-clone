@@ -12,16 +12,23 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 
 const MovieThumbnail = ({ film, index, itemsPerRow }) => {
     const [rating, setRating] = useState("");
+    const [runTime, setRunTime] = useState("");
     const { backdrop_path, title, vote_average, genre_ids, id } = film;
 
     const fetchRating = (id) => {
-        const URL = `https://api.themoviedb.org/3/movie/${id}/release_dates?api_key=${API_KEY}`;
+        const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=release_dates`;
+   
         fetch(URL)
             .then(response => response.json())
             .then(data => {
-                const US = data.results.filter(el => el.iso_3166_1 === "US");
-                const releases = US[0].release_dates.filter(el => el.certification.length)
-               setRating(releases[0].certification);
+                console.log(data) 
+                const hours = Math.floor(data.runtime / 60);
+                const minutes = data.runtime - hours * 60;
+                setRunTime(`${hours}h ${minutes}m`);
+
+                const usOnly = data.release_dates.results.filter(el => el.iso_3166_1 === "US")            
+                const ratedOnly = usOnly[0].release_dates.filter(el => el.certification !== "");
+                ratedOnly.length ? setRating(ratedOnly[0].certification) : setRating("NA");              
             })
     }
 
@@ -74,6 +81,9 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                         </div>
                         <div className=' text-white text-xs border-2 p-1'>
                             <span>{rating && `${rating}`}</span>
+                        </div>
+                        <div class="text-white text-xs">
+                            <span>{runTime && `${runTime}`}</span>
                         </div>
 
                     </div>
