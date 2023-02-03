@@ -22,17 +22,17 @@ function App() {
 
       <Feature fetchURL={requests.fetchTrending} />
 
-      {/* <CategoryRow category='Top 20' fetchURL={requests.fetchTopRated} windowSize={size} />
-    
       <CategoryRow category='Popular on Netflix' fetchURL={requests.fetchPopular} windowSize={size} />
-            
+
+      <CategoryRow category='Top 20' fetchURL={requests.fetchTopRated} windowSize={size} />
+                    
       <CategoryRow category='Action' fetchURL={requests.fetchAction} windowSize={size} />
       
       <CategoryRow category='Comedy' fetchURL={requests.fetchComedy} windowSize={size} />
 
       <CategoryRow category='Horror' fetchURL={requests.fetchHorror} windowSize={size} />
       
-      <CategoryRow category='Family' fetchURL={requests.fetchFamily} windowSize={size} /> */}
+      <CategoryRow category='Family' fetchURL={requests.fetchFamily} windowSize={size} />
     
       <CategoryRow category='Documentary' fetchURL={requests.fetchDocumentary} windowSize={size} />
  
