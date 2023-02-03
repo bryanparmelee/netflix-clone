@@ -9,13 +9,13 @@ const ScrollProgress = ({ items, position}) => {
         return position === i ? (
                 <div
                 key={i} 
-                className="flex-[0_0_2rem] h-0.5 bg-white/90"             
+                className="flex-[0_0_12px] h-px bg-white/90"             
                 >
                 </div>
             ) : (
                 <div
                 key={i} 
-                className="flex-[0_0_2rem] h-0.5 bg-white/50"             
+                className="flex-[0_0_12px] h-px bg-white/50"             
                 >
                 </div>
             )
@@ -23,7 +23,8 @@ const ScrollProgress = ({ items, position}) => {
     });
 
     return (
-        <div className="flex gap-1">
+        <div
+            className="flex gap-0.5 max-[480px]:pr-[40%] pr-[20%] sm:pr-[15%] md:pr-[10%]">
             {pBar}
         </div>
     )

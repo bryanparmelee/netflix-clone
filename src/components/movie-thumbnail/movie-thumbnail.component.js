@@ -61,7 +61,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                     alt={`${title}`}                  
                     className="rounded group-hover/movie:rounded-t group-hover/movie:rounded-b-none group-hover/movie:shadow-2xl group-hover/movie:z-50" 
                 />
-                <div className="bg-neutral-900 hidden p-1 transition delay-200 ease-out rounded-b-sm group-hover/movie:flex flex-col gap-1 justify-evenly group-hover/movie:shadow-2xl group-hover/movie:z-50">
+                <div className="bg-neutral-800 hidden p-1 transition delay-200 ease-out rounded-b-sm group-hover/movie:flex flex-col gap-1 justify-evenly group-hover/movie:shadow-2xl group-hover/movie:z-50">
                     <div className="flex justify-between">
                         <div className="flex gap-1 group-hover/movie:scale-[.8] -translate-x-2">
                             <img alt='play' src={play}/>
@@ -72,7 +72,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                             <img alt='more' src={more} />
                         </div>
                     </div>
-                    <div className="flex items-center gap-2 group-hover/movie:scale-[.7] -translate-x-7">
+                    <div className="flex items-center gap-2 group-hover/movie:scale-[.7] max-[360px]:-translate-x-5 -translate-x-6">
                         <div className=' text-green-500 font-bold text-xs whitespace-nowrap'>
                             <span>{`${match}% Match`}</span>
                         </div>
@@ -87,7 +87,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
                         </div>
 
                     </div>
-                    <div className='text-white text-xs flex gap-1 group-hover/movie:scale-[.7] -translate-x-7'>
+                    <div className='text-white text-xs flex gap-1 group-hover/movie:scale-[.7] -translate-x-6 max-[360px]:-translate-x-5'>
                         {genreList}
                     </div>             
                 </div>

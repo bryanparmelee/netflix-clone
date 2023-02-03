@@ -58,8 +58,8 @@ const CategoryRow = ({ category, fetchURL, windowSize }) => {
     return (
         <div  
             className="mb-8">
-            <div className="flex justify-between items-center py-1 pl-[5%] pr-[160px]">
-                <h2 className="text-white text-lg">{category}</h2>
+            <div className="flex justify-between items-center py-1 pl-[5%]">
+                <h2 className="text-white text-sm sm:text-md md:text-lg">{category}</h2>
                 <ScrollProgress items={progressItems} position={slideIndex} />
             </div>
             
