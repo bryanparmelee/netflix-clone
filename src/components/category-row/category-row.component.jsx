@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MovieThumbnail from "../movie-thumbnail/movie-thumbnail.component";
 import ScrollProgress from "../scroll-progress/scroll-progress.component";
+import Loading from "../loading/loading.component";
 
 const CategoryRow = ({ category, fetchURL, windowSize }) => {
     const [movies, setMovies] = useState([]);
@@ -76,7 +77,7 @@ const CategoryRow = ({ category, fetchURL, windowSize }) => {
                     style={{ transform:`translateX(calc(${slideIndex} * -100%))` }}
                     className='w-[90%] flex gap-1 transition duration-200 ease-in-out'
                 >
-                    {movies && movies.map((movie, i) => 
+                    {!movies ? <Loading itemsPerRow={itemsPerRow} /> : movies.map((movie, i) => 
                     (<MovieThumbnail key={movie.id} film={movie} index={i} itemsPerRow={itemsPerRow} />
                     ))}
                 </div>
