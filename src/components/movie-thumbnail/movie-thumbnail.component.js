@@ -32,7 +32,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
     }
        
  
-    const bgImg = backdrop_path ? `https://image.tmdb.org/t/p/w200${backdrop_path}` : 'https://pixabay.com/get/g595da6ad9d1790129694f5bf8d40a410e2eec03c0961e471e3e76cbbdfd09eb87b2102bf8bb2e205690dc042d161106233420c13f32ceda544b5d6a79606d53b32b429b8a3a7f2d1b2bbd69b0fcf6e5f_640.jpg';
+    const bgImg = backdrop_path ? `https://image.tmdb.org/t/p/w200${backdrop_path}` : 'https://images.unsplash.com/photo-1524712245354-2c4e5e7121c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80';
 
     const imgSize = 100 / itemsPerRow;
 
