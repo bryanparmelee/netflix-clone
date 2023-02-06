@@ -13,7 +13,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const MovieThumbnail = ({ film, index, itemsPerRow }) => {
     const [rating, setRating] = useState("");
     const [runTime, setRunTime] = useState("");
-    const { backdrop_path, title, vote_average, genre_ids, id } = film;
+    const { backdrop_path, title, name, vote_average, genre_ids, id } = film;
 
     const fetchRating = (id) => {
         const URL = `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&append_to_response=release_dates`;
@@ -45,7 +45,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
         (
             <span key={i} className="whitespace-nowrap"> {genres[genre]} <span className="text-slate-500"> •</span> </span>
         ) : (
-            <span key={i}> {genres[genre]} </span>
+            <span key={i} className="whitespace-nowrap"> {genres[genre]} </span>
         )
     });
 
@@ -54,7 +54,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
             <div
                 onMouseEnter={() => fetchRating(id)}
                 style={{ maxWidth: `${imgSize}%` }}
-                className="aspect-video flex-none cursor-pointer z-20 transition hover:z-50 hover:-translate-y-16 hover:scale-125 hover:drop-shadow-2xl hover:rounded group/movie">
+                className="aspect-video flex-none cursor-pointer z-20 transition hover:z-50 hover:-translate-y-16 hover:scale-125 hover:drop-shadow-2xl hover:rounded group/movie relative">
               
                 <img 
                     src={bgImg}

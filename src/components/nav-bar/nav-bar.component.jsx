@@ -19,7 +19,7 @@ const NavBar = () => {
                     src={logo}
                     className='w-16 md:w-20 mr-8 cursor-pointer'
                 />
-                <div className='hidden text-white text-[0.5rem] md:text-xs font-bold sm:flex items-center justify-evenly gap-4 whitespace-nowrap'>
+                <div className='hidden text-white text-[0.5rem] md:text-xs font-light sm:flex items-center justify-evenly gap-4 whitespace-nowrap'>
                     <span className='cursor-pointer'>Home</span>
                     <span className='cursor-pointer'>TV Shows</span>
                     <span className='cursor-pointer'>Movies</span>
@@ -62,7 +62,7 @@ const NavBar = () => {
                     
                 </div>
             </div>
-            <div className='text-white text-xs font-bold flex justify-evenly items-center gap-4'>
+            <div className='text-white text-xs font-light flex justify-evenly items-center gap-4'>
                 <img 
                     alt='search'
                     src={search}
@@ -74,11 +74,18 @@ const NavBar = () => {
                     src={notification}
                     className='h-4 cursor-pointer'
                 />
-                <img 
-                    alt='user-icon'
-                    src={userIcon}
-                    className='h-4 cursor-pointer'
-                />
+                <div className='flex items-center gap-2 cursor-pointer'>
+                    <img 
+                        alt='user-icon'
+                        src={userIcon}
+                        className='h-5'
+                    />
+                    <img 
+                        alt='user-more'
+                        src={down}
+                        className='h-2'
+                    />
+                </div>
             </div>
         </div>
     )
