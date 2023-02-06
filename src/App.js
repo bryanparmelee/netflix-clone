@@ -23,6 +23,8 @@ function App() {
       <Feature fetchURL={requests.fetchTrending} />
 
       <CategoryRow category='Popular on Netflix' fetchURL={requests.fetchPopular} windowSize={size} />
+      
+      <CategoryRow category='Trending Now' fetchURL={requests.fetchTrending} windowSize={size} />
 
       <CategoryRow category='Top 20' fetchURL={requests.fetchTopRated} windowSize={size} />
                     

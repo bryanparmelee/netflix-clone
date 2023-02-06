@@ -36,7 +36,7 @@ const MovieThumbnail = ({ film, index, itemsPerRow }) => {
 
     const imgSize = 100 / itemsPerRow;
 
-    const match = vote_average * 10;
+    const match = Math.floor(vote_average * 10);
 
     const genreSlice = genre_ids.slice(0, 3);
     const genreList =  genreSlice.map((genre, i) => {
