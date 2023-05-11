@@ -6,13 +6,13 @@
 
 ## Features
 
-    - A faithful reproduction of the Netflix homepage
-    - Featured movies are updated regularly using the Movie Database API.
-    - Utilizes the Netflix hover effect to reveal ratings, genres and runtimes for movies.
-    - Recreates the Netflix slider effect to browse movies in each category.
+- A faithful reproduction of the Netflix homepage
+- Featured movies are updated regularly using the Movie Database API.
+- Utilizes the Netflix hover effect to reveal ratings, genres and runtimes for movies.
+- Recreates the Netflix slider effect to browse movies in each category.
 
 ## Technologies Used:
 
-    - React
-    - Tailwind CSS
-    - The Movie Database API
+- React
+- Tailwind CSS
+- The Movie Database API
